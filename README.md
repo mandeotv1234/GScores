@@ -39,7 +39,7 @@ cd GScores
 
 ### 2. Setup environment variables
 - Copy `.env.example` to `.env` in both `Backend` and `Frontend` folders and fill in your DB credentials if needed.
-- Example files are provided: `.env.example` (root), `Backend/.env.example`, `Frontend/.env.example`.
+- Example files are provided: `Backend/.env.example`, `Frontend/.env.example`.
 
 ### 3. Run with Docker Compose
 ```sh
@@ -66,3 +66,37 @@ docker-compose up --build
 
 ## License
 MIT
+
+## Backend Architecture: Clean Architecture
+
+The backend is designed using Clean Architecture principles for maintainability, scalability, and testability.
+
+### Layers Overview
+- **Domain:** Contains core business models (entities), enums, and business rules. Example: `ExamResult`, `User`, score level enums.
+- **Application:** Contains use cases (business logic), repository interfaces, request/response objects. Example: `GetExamResultByIdUseCase`, `GenerateScoreLevelReportUseCase`.
+- **Adapter:** Contains REST controllers, DTOs, and mapping logic between web and application layers. Example: `ExamResultController`, DTOs for API responses.
+- **Infrastructure:** Contains persistence (JPA repositories), configuration, security, seeding, and integration with external systems (DB, JWT, etc).
+
+### Data Flow Example
+1. **Frontend** sends a request to the backend API (controller in Adapter).
+2. **Controller** calls the appropriate UseCase in Application.
+3. **UseCase** processes business logic, interacts with Repository interface (implemented in Infrastructure).
+4. **Repository** fetches data from the database and returns to UseCase.
+5. **UseCase** returns a response object, which is mapped to a DTO and sent back to the frontend.
+
+### Benefits
+- **Separation of concerns:** Each layer has a clear responsibility.
+- **Testability:** Business logic is isolated and easy to test.
+- **Flexibility:** Technology changes (DB, web framework) do not affect business logic.
+- **Maintainability:** Code is organized, easy to extend and refactor.
+
+### Example
+- **Domain:** `ExamResult.java` defines the exam result entity.
+- **Application:** `GetExamResultByIdUseCase.java` handles score lookup logic.
+- **Adapter:** `ExamResultController.java` exposes REST API endpoints.
+- **Infrastructure:** JPA repositories, JWT security, CSV seeder for initial data import.
+
+### Seeder/Migration
+- Raw data from `diem_thi_thpt_2024.csv` is imported into the database using a seeder script in the Infrastructure layer.
+
+This architecture ensures the backend is robust, maintainable, and ready for future growth.
