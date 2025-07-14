@@ -24,7 +24,7 @@ A fullstack web application for THPT 2024 score lookup, reporting, and statistic
 - **Frontend:** Vue 3, TypeScript, Tailwind CSS, Chart.js, Vite
 - **Backend:** Java Spring Boot, OOP for subject management, validation, ORM (JPA/Hibernate)
 - **Database:** PostgreSQL
-- **Deployment:** Backend on Render, Frontend on Vercel
+- **Deployment:** Backend on Google Cloud, Frontend on Vercel
 
 ## How to Run Locally
 
@@ -51,11 +51,8 @@ docker-compose up --build
 - Backend: Java 21+, PostgreSQL, run `./gradlew bootRun` in `Backend`
 - Frontend: Node.js 20+, run `npm install && npm run dev` in `Frontend`
 
-## Data Migration
-- Place `diem_thi_thpt_2024.csv` in the backend data folder.
-
 ## Demo Links
-- **Backend:** https://gscore-517774435862.australia-southeast1.run.app
+- **Backend:** https://gscore-517774435862.europe-west1.run.app
 - **Frontend/App:** https://g-scores-app-eight.vercel.app
 
 ## Requirements
