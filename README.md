@@ -39,6 +39,7 @@ cd GScores
 
 ### 2. Setup environment variables
 - Copy `.env.example` to `.env` in both `Backend` and `Frontend` folders and fill in your DB credentials if needed.
+- Example files are provided: `.env.example` (root), `Backend/.env.example`, `Frontend/.env.example`.
 
 ### 3. Run with Docker Compose
 ```sh
@@ -50,6 +51,11 @@ docker-compose up --build
 ### 4. Manual (without Docker)
 - Backend: Java 21+, PostgreSQL, run `./gradlew bootRun` in `Backend`
 - Frontend: Node.js 20+, run `npm install && npm run dev` in `Frontend`
+
+### 5. Login Information
+- When you open the app, you must login first.
+- **Username:** `admin`
+- **Password:** `Vlchinsu1234*`
 
 ## Demo Links
 - **Backend:** https://gscore-517774435862.europe-west1.run.app
