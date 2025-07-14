@@ -1,0 +1,21 @@
+# Ignore environment files
+.env
+Backend/.env
+Frontend/.env
+
+# Ignore Spring Boot local config
+Backend/src/main/resources/application-local.properties
+Backend/src/main/resources/application-local.yml
+
+# Ignore build output
+/build/
+Backend/build/
+Frontend/node_modules/
+Frontend/dist/
+
+# Ignore IDE and OS files
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
